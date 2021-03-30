@@ -11,6 +11,9 @@ let direction =1
 let goingRight = true
 let removeAlien = []
 let result = 0
+var soundBoom= new Audio("boom.mp3")
+var soundLaser= new Audio("laser.mp3")
+var sounDie = new Audio("preview.mp3")
 //tao mang tu chuoi, tat ca cac o div trong 1 mang
 const squares = Array.from(document.querySelectorAll('.grid div'))
 const currenAlien = [
@@ -23,6 +26,7 @@ function draw() {
   for (let i = 0; i < currenAlien.length; i++) {
     if(!removeAlien.includes(i)){  // dieu kien khi ban trung se xoa muc tieu
       squares[currenAlien[i]].classList.add('invader')
+      soundBoom.play()
     }
   }
 }
@@ -30,6 +34,7 @@ function draw() {
 function remove() {
   for(let i=0;i<currenAlien.length;i++){
     squares[currenAlien[i]].classList.remove('invader')
+
   }
 }
 draw()
@@ -117,6 +122,8 @@ function shoot(e){
   switch (e.key){
     case 'ArrowUp':
       laser = setInterval(moveLaser,100)
+          soundLaser.play()
+
   }
 }
 document.addEventListener('keydown',shoot)
