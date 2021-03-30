@@ -4,7 +4,7 @@ for(let i =0;i<225;i++){
   const square =document.createElement('div')
   grid.appendChild(square)
 }
-let currentShooter =202// phi thuyen o vi tri 202
+let currentShooter =217// phi thuyen o vi tri 202
 let width =15           //  chieu dai 15 khối
 let moveAlienId
 let direction =1
@@ -45,10 +45,10 @@ function moveShooter(e){
   squares[currentShooter].classList.remove('shooter') // xóa ảnh
   switch (e.key){
     case 'ArrowLeft':
-      if (currentShooter % width !== 0) currentShooter -=1
+      if (currentShooter >210 ) currentShooter -=1
       break
     case 'ArrowRight' :
-      if (currentShooter % width < width -1) currentShooter +=1
+      if (currentShooter < 224) currentShooter +=1
       break
   }
   squares[currentShooter].classList.add('shooter')
